@@ -1,8 +1,16 @@
+* { box-sizing: border-box; }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    font: normal normal normal 1rem/1.125em arial, helvetica, 'helvetica neue', sans-serif;
+}
 
-
-@import './App.scss';
-@import './Commands.scss';
-@import './Dashboard.scss';
-@import './Map.scss';
-@import './Description.scss';
+@import './mixins';
+@import './App';
+@import './Commands';
+@import './Dashboard';
+@import './Map';
+@import './Description';
+@import './Navbar';
+@import './LoginReg';

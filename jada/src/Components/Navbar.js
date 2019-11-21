@@ -1,18 +1,26 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = (props) => {
 
-    const logout = e => {
-        localStorage.removeItem('token')
-        props.history.push('/login')
-    }
-
     return (
-        <div>
-            <button onClick={logout}>logout</button>
+        <div className="navigation">
+            <h2>JAD&#0193;</h2>
+            {
+                localStorage.getItem("token") === null && (
+                    <>
+                        <NavLink exact to="/">login</NavLink>
+                        <NavLink to="/register">register</NavLink>
+                    </>
+                )
+            }
+            {
+                localStorage.getItem("token") && (
+                    <NavLink to="/logout">logout</NavLink>
+                )
+            }
         </div>
     );
 };
 
-export default withRouter(Navbar);
+export default Navbar;

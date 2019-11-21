@@ -1,0 +1,55 @@
+.login, .register {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    h2 {
+        margin: 0 0 10px;
+    }
+
+    form {
+        width: calc(100vw - 20px);
+        min-width: 300px;
+        max-width: 500px;
+        max-height: 340px;
+        margin: 0 auto;
+        padding: 30px;
+        background: rgba(255,255,255,0.75);
+        text-align: center;
+        border: 1px solid rgba(255,0,255,0.4);
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(190,10,190,0.35);
+
+        input, button {
+            width: 100%;
+            margin: 10px auto;
+            padding: 12px;
+            @include border-radius(4);
+        }
+
+        input {
+            font-size: 0.875rem;
+            border: 1px solid #ccc;
+
+            &:first-child {
+                margin-top: none;
+            }
+        }
+
+        button {
+            max-width: 200px;
+            margin-bottom: 0;
+            background: rgba(200,10,210,0.8);
+            color: #fff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font: bold 0.875rem/1.125em arial, helvetica, 'helvetica neue', sans-serif;
+            @include border-radius(4);
+        }
+    }
+}

@@ -35,8 +35,9 @@ const Register = (props) => {
 
 
     return (
-        <div>
+        <div className="register">
             <form onSubmit={signup}>
+                <h2>Register</h2>
                 <input type='text' value={user.username} name='username' onChange={handleChanges} placeholder='username' />
                 <input type='password' value={user.password1} name='password1' onChange={handleChanges} placeholder='password1'/>
                 <input type='password' value={user.password2} name='password2' onChange={handleChanges} placeholder='password2'/>

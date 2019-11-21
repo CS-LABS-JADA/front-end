@@ -78,7 +78,6 @@ const Map = () => {
         .then(res => {
             const newRoom = res.data.id
             data.nodes[currentRoom - 1].color = "darkgrey"
-            //console.log(`before ${currentRoom}`)
             setCurrentRoom(newRoom)
         })
         .catch(err => {
