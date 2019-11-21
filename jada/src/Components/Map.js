@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Graph } from "react-d3-graph";
 import { axiosWithAuth } from "../utilities/axiosWithAuth";
 
-const Map = () => {
-    const [data, setData] = useState();
-    const [currentRoom, setCurrentRoom] = useState()
+const Map = (props) => {
+    // const [data, setData] = useState();
+    // const [currentRoom, setCurrentRoom] = useState()
     const [prevRoom, setPrevRoom] = useState()
 
     const config = {
         nodeHighlightBehavior: true,
         staticGraph: true,
         node: {
-            color: "lightgrey",
+            color: "#c80ad2cc",
             size: 120,
             highlightStrokeColor: "blue",
             renderLabel: false,
@@ -45,7 +45,8 @@ const Map = () => {
                 }
             } 
             console.log(data, "data")
-            setData(data);
+            props.setData(data);
+            // props.test(data, setCurrentRoom)
         })
         .catch((err) => {
             console.log(err)
@@ -54,7 +55,7 @@ const Map = () => {
         axiosWithAuth()
         .get("api/adv/init")
         .then((res) => {
-            setCurrentRoom(res.data.id)
+            props.setCurrentRoom(res.data.id)
         })
         .catch((err) => {
             console.error(err)
@@ -62,30 +63,27 @@ const Map = () => {
     }, []);
     
     useEffect(() => {
-        if(data && currentRoom) {
-            data.nodes[currentRoom - 1].color = "purple"
-            setPrevRoom(currentRoom)
+        console.log("Attempting to change color")
+        if(props.data && props.currentRoom) {
+            props.data.nodes[props.currentRoom - 1].color = "black"
+            setPrevRoom(props.currentRoom)
         }
-    }, [data, currentRoom])
-
-    const setAction = () => {
-        console.log('hi')
-    }
+    }, [props.data, props.currentRoom])
 
     const charAction = e => {
         axiosWithAuth()
         .post("/api/adv/move", { "direction": e.target.name })
         .then(res => {
             const newRoom = res.data.id
-            data.nodes[currentRoom - 1].color = "darkgrey"
-            setCurrentRoom(newRoom)
+            props.data.nodes[props.currentRoom - 1].color = "#7a0e80"
+            props.setCurrentRoom(newRoom)
         })
         .catch(err => {
             console.error(err)
         }) 
     }
 
-    if(!data) return <h1>Loading rooms...</h1>
+    if(!props.data) return <h1>Loading rooms...</h1>
 
     return (
         <div className='map-container'>
@@ -93,16 +91,16 @@ const Map = () => {
             <Graph 
                 style={{border: "1px solid red"}}
                 id="graph-id" 
-                data={data} 
+                data={props.data} 
                 config={config}
                  />
             <button onClick={charAction} name="n">North</button>
             <button onClick={charAction} name="s">South</button>
             <button onClick={charAction} name="e">East</button>
             <button onClick={charAction} name="w">West</button>
-            <form onSubmit={charAction}>
+            {/* <form onSubmit={charAction}>
                 <input onChange={setAction} type="text" />
-            </form>
+            </form> */}
         </div>
     );
 };
