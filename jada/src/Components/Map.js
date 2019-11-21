@@ -62,7 +62,7 @@ const Map = () => {
     }, []);
     
     useEffect(() => {
-        if(data) {
+        if(data && currentRoom) {
             data.nodes[currentRoom - 1].color = "purple"
             setPrevRoom(currentRoom)
         }

@@ -1,7 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { axiosWithAuth } from '../utilities/axiosWithAuth'
 
 const Navbar = (props) => {
+
+    const logoutJada = () => {
+        localStorage.removeItem('token')
+
+        // Logout Endpoint Still needs Work !!
+        // axiosWithAuth().post(`api/login/`)
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+        //     .catch(err => {
+        //         console.error(err)
+        //     })
+    }
 
     return (
         <div className="navigation">
@@ -16,7 +30,7 @@ const Navbar = (props) => {
             }
             {
                 localStorage.getItem("token") && (
-                    <NavLink to="/logout">logout</NavLink>
+                    <NavLink onClick={logoutJada} to="/">logout</NavLink>
                 )
             }
         </div>
