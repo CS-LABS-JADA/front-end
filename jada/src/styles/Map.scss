@@ -38,6 +38,11 @@
             height: 100% !important;
         }
     }
+    
+    #graph-id-graph-container-zoomable {
+        // transform: translate(420px, 165px) scale(1.1);
+        transform: translate(410px, 255px) scale(0.6);
+    }
 
     .mv-btns {
         width: 100%;
