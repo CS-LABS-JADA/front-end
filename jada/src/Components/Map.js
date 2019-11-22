@@ -11,7 +11,7 @@ const Map = (props) => {
         nodeHighlightBehavior: true,
         staticGraph: true,
         node: {
-            color: "#c80ad2cc",
+            color: "rgb(120,120,120)",
             size: 120,
             highlightStrokeColor: "blue",
             renderLabel: false,
@@ -55,6 +55,7 @@ const Map = (props) => {
         axiosWithAuth()
         .get("api/adv/init")
         .then((res) => {
+            props.placeCommands(res.data);
             props.setCurrentRoom(res.data.id)
         })
         .catch((err) => {
@@ -63,44 +64,29 @@ const Map = (props) => {
     }, []);
     
     useEffect(() => {
-        console.log("Attempting to change color")
+        // console.log("Attempting to change color")
         if(props.data && props.currentRoom) {
-            props.data.nodes[props.currentRoom - 1].color = "black"
+            props.data.nodes[props.currentRoom - 1].color = "#a616e9"
             setPrevRoom(props.currentRoom)
         }
     }, [props.data, props.currentRoom])
-
-    const charAction = e => {
-        axiosWithAuth()
-        .post("/api/adv/move", { "direction": e.target.name })
-        .then(res => {
-            const newRoom = res.data.id
-            props.data.nodes[props.currentRoom - 1].color = "#7a0e80"
-            props.setCurrentRoom(newRoom)
-        })
-        .catch(err => {
-            console.error(err)
-        }) 
-    }
 
     if(!props.data) return <h1>Loading rooms...</h1>
 
     return (
         <div className='map-container'>
-            <h1> Hello from Map</h1>
             <Graph 
                 style={{border: "1px solid red"}}
                 id="graph-id" 
                 data={props.data} 
                 config={config}
                  />
-            <button onClick={charAction} name="n">North</button>
-            <button onClick={charAction} name="s">South</button>
-            <button onClick={charAction} name="e">East</button>
-            <button onClick={charAction} name="w">West</button>
-            {/* <form onSubmit={charAction}>
-                <input onChange={setAction} type="text" />
-            </form> */}
+            <div class="mv-btns">
+                <button onClick={e => {props.charAction(e, "n")}} name="n">North</button>
+                <button onClick={e => {props.charAction(e, "s")}} name="s">South</button>
+                <button onClick={e => {props.charAction(e, "e")}} name="e">East</button>
+                <button onClick={e => {props.charAction(e, "w")}} name="w">West</button>
+            </div>
         </div>
     );
 };

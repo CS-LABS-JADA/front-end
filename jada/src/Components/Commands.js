@@ -10,13 +10,15 @@ const Commands = (props) => {
     }
 
     return (
-        <div className='commands-container'>
-            <h1> Hello from Commands</h1>
+        <>
+            <div class="text-area command-output">
+            </div>
             <form onSubmit={(e) => {
-                props.charAction(e,command, setCommand)}}>
-                <input onChange={handleChanges} type="text" value={command}/>
+                props.charAction(e,command); 
+                setCommand('')}}>
+                <input onChange={handleChanges} type="text" value={command} placeholder="input commands here"/>
             </form>
-        </div>
+        </>                    
     );
 };
 

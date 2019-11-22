@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { axiosWithAuth } from '../utilities/axiosWithAuth'
+
+import Favicon from '../img/jada-icon.png';
 
 const Navbar = (props) => {
 
@@ -19,7 +20,7 @@ const Navbar = (props) => {
 
     return (
         <div className="navigation">
-            <h2>JAD&#0193;</h2>
+            <h2><img src={Favicon} width="32" height="32" /> JAD&#0193;</h2>
             {
                 localStorage.getItem("token") === null && (
                     <>
