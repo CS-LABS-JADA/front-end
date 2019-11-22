@@ -10,11 +10,17 @@
         width: 50%;
         margin: -4px 0 0;
         padding: 0;
-        color: rgba(200,10,210,0.8);
+        color: #b367d6;
         text-align: left;
         font-size: 1.125rem;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
         float: left;
+        display:flex;
+        align-items: center;
+
+        img {
+            margin-right: 6px;
+        }
     }
 
     a {

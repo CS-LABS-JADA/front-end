@@ -1,5 +1,39 @@
 .desc-cont {
-    border: 1px solid red;
-    height: 300px;
-    margin-top: 50px;
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    background: rgba(250, 250, 250, 0.8);
+    color: #666;
+    border: 1px solid #ccc;
+    @include border-radius(12);
+
+    h3 {
+        margin: 0;
+        padding: 20px;
+    }
+
+    ul {
+        margin: 0 0 20px 20px;;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            margin: 0 0 4px 10px;
+            font-size: 0.875rem;
+        }
+
+        .title {
+            margin-bottom: 6px;
+            margin-left: 0;
+            color: #777;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .desc-cont {
+        display: none;
+    }
 }
