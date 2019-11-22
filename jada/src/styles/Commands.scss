@@ -63,6 +63,10 @@
                     color: rgb(157, 112, 230);
                 }
             }
+
+            span.player-name {
+                color: rgb(79, 211, 252);
+            }
         }
     }
 
@@ -82,5 +86,21 @@
                 color: #ccc;
             }
         }
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .commands-container {
+        width: 100%;
+        height: 60%;
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .commands-container {
+        width: 100%;
+        height: 300px;
+        margin-top: 20px;
     }
 }

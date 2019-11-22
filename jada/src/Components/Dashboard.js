@@ -12,11 +12,25 @@ const Dashboard = (props) => {
     // const [prevRoom, setPrevRoom] = useState()
 
     const placeCommands = (dataSet) => {
-        // console.log({"DATASET":dataSet});
+        console.log({"DATASET":dataSet});
         let textArea = document.querySelector('.command-output');
         let cmdStr = textArea.innerHTML;
+        let playerStr = "";
         if(dataSet.title) {
             cmdStr += `<h3>${dataSet.title}</h3><p>${dataSet.description}</p>`;
+        }
+        if(dataSet.players.length > 0) {
+            playerStr = "You are in the room with: ";
+            let numPlayers = dataSet.players.length;
+            for( let player in dataSet.players) {
+                if(numPlayers > 1){
+                    playerStr += ` <span class="player-name">${dataSet.players[player]}</span>,`
+                    numPlayers--
+                } else {
+                    playerStr += ` <span class="player-name">${dataSet.players[player]}</span>`
+                }
+            }
+            cmdStr += `<p class="other-players">${playerStr}</p>`
         }
         textArea.innerHTML = cmdStr;
     }

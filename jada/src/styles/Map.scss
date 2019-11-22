@@ -1,6 +1,6 @@
 .map-container {
     width: 100%;
-    height: calc(80vh - 100px);
+    height: calc(80% - 100px);
     background: rgba(0,0,0,0.85);
     border: 1px solid #ddd;
     @include border-radius(12);
@@ -71,4 +71,21 @@
     //         }
     //     }
     // }
+}
+
+@media only screen and (max-width:800px) {
+    .map-container {
+        height: calc(40vh - 40px);
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .map-container{
+
+        .mv-btns {
+            button {
+                width: 25%;
+            }
+        }
+    }
 }
