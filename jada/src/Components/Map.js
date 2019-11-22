@@ -45,6 +45,7 @@ const Map = (props) => {
                 }
             } 
             // console.log(data, "data")
+            data.nodes[Math.floor(Math.random() * 501)].color = 'yellow'
             props.setData(data);
             // props.test(data, setCurrentRoom)
         })
@@ -70,7 +71,7 @@ const Map = (props) => {
             setPrevRoom(props.currentRoom)
         }
     }, [props.data, props.currentRoom])
-
+    
     if(!props.data) {
         return (
             <div className='map-container loading'>
