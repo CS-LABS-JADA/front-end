@@ -20,7 +20,7 @@ const Navbar = (props) => {
 
     return (
         <div className="navigation">
-            <h2><img src={Favicon} width="32" height="32" /> JAD&#0193;</h2>
+            <h2><img src={Favicon} alt="JADA logo" width="32" height="32" /> JAD&#0193;</h2>
             {
                 localStorage.getItem("token") === null && (
                     <>

@@ -21,6 +21,23 @@
         justify-content:flex-end;
         align-items: flex-start;
 
+        h2 {
+            width: 50%;
+            margin: -4px 0 0;
+            padding: 0;
+            color: #b367d6;
+            text-align: left;
+            font-size: 1.125rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            float: left;
+            display:flex;
+            align-items: center;
+    
+            img {
+                margin-right: 6px;
+            }
+        }
+
         h3 {
             margin: 40px 0 4px;
         }
@@ -33,6 +50,18 @@
                 margin-top: 40px;
                 color: rgb(218, 218, 139);
                 font-style: italic;
+            }
+
+            &.intro {
+                margin-top: 10px;
+
+                em {
+                    color: rgb(206, 206, 108);
+                }
+
+                strong {
+                    color: rgb(157, 112, 230);
+                }
             }
         }
     }

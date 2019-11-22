@@ -44,7 +44,7 @@ const Map = (props) => {
                     data.links.push({source:key ,target: String(value.w_to)})
                 }
             } 
-            console.log(data, "data")
+            // console.log(data, "data")
             props.setData(data);
             // props.test(data, setCurrentRoom)
         })
@@ -81,7 +81,7 @@ const Map = (props) => {
                 data={props.data} 
                 config={config}
                  />
-            <div class="mv-btns">
+            <div className="mv-btns">
                 <button onClick={e => {props.charAction(e, "n")}} name="n">North</button>
                 <button onClick={e => {props.charAction(e, "s")}} name="s">South</button>
                 <button onClick={e => {props.charAction(e, "e")}} name="e">East</button>

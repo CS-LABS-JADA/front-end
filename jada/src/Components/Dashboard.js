@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {axiosWithAuth} from '../utilities/axiosWithAuth'
 
 //components
@@ -22,7 +22,7 @@ const Dashboard = (props) => {
     }
 
     const giveDirection = (direction) => {
-        console.log(direction);
+        // console.log(direction);
         const dir = { "n":"north", "e":"east", "s":"south", "w":"west"}
         let textArea = document.querySelector('.command-output');
         let cmdStr = textArea.innerHTML;
@@ -34,7 +34,7 @@ const Dashboard = (props) => {
     const charAction = (e, command) => {
         e.preventDefault()
         giveDirection(command);
-        console.log("Char Action")
+        // console.log("Char Action")
         axiosWithAuth()
         .post("/api/adv/move", { "direction": command })
         .then(res => {
@@ -49,10 +49,6 @@ const Dashboard = (props) => {
             console.error(err)
         }) 
     }
-
-    useEffect(() => {
-        console.log("Current Room has changne")
-    },[currentRoom])
 
     return (
         <div className='container'>
