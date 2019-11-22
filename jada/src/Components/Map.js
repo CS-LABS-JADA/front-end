@@ -71,7 +71,13 @@ const Map = (props) => {
         }
     }, [props.data, props.currentRoom])
 
-    if(!props.data) return <h1>Loading rooms...</h1>
+    if(!props.data) {
+        return (
+            <div className='map-container loading'>
+                <h4>Loading rooms...</h4>
+            </div>
+        )
+    }
 
     return (
         <div className='map-container'>
